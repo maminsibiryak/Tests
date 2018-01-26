@@ -9,6 +9,7 @@ import java.util.List;
 
 public class EasyTest {
     private List<String> lines;
+    private List<String> answerReadList;
     private  ArrayList<String> answerWriteList = new ArrayList<>();
     private int result ;
 
@@ -21,7 +22,7 @@ public class EasyTest {
 
 
 
-        List<String> lines = Files.readAllLines(Paths.get("test.txt"), StandardCharsets.UTF_8);
+         lines = Files.readAllLines(Paths.get("test.txt"), StandardCharsets.UTF_8);
 
         for (int i = 0; i < lines.size(); i++) {
             System.out.println(i + " " + lines.get(i));
@@ -36,7 +37,7 @@ public class EasyTest {
     //answer
     public  void readAnswer(String s) {
         // BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        String[] tmp = s.split(",");
+        String[] tmp = s.split(", ");
 
 
         for (int i = 0; i <tmp.length ; i++) {
@@ -56,7 +57,7 @@ public class EasyTest {
 
     public void checkAnswer() throws IOException {
         //equals
-        List<String> answerReadList = Files.readAllLines(Paths.get("answerReadList.txt"), StandardCharsets.UTF_8);
+         answerReadList = Files.readAllLines(Paths.get("answerReadList.txt"), StandardCharsets.UTF_8);
 
         for (int i = 0; i < answerReadList.size(); i++) {
             if (answerWriteList.get(i).equals(answerReadList.get(i))) {
